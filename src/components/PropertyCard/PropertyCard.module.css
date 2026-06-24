@@ -1,0 +1,201 @@
+:root {
+  --status-active:  #1DB954;
+  --status-pending: #F5A623;
+  --status-sold:    #E02020;
+  --price-reduced:  #E02020;
+  --color-accent:   #0969DA;
+  --border-color:   #E2E6EA;
+  --radius-card:    12px;
+  --radius-badge:   4px;
+  --shadow-card:    0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Card shell ── */
+.card {
+  background: #fff;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  grid-template-rows: auto auto;
+}
+
+/* ── Photo ── */
+.photoArea {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #C9D1D9;
+  grid-row: 1;
+  grid-column: 1;
+  overflow: hidden;
+}
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.photoPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8B949E;
+  font-size: 13px;
+}
+.photoCount {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--radius-badge);
+}
+
+/* ── Info panel ── */
+.info {
+  grid-row: 1 / 3;
+  grid-column: 2;
+  padding: 16px;
+  border-left: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.price {
+  font-size: 24px;
+  font-weight: 700;
+}
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.addrLine1 {
+  font-size: 14px;
+  font-weight: 500;
+}
+.addrLine2 {
+  font-size: 12px;
+  color: #57606A;
+  margin-top: 2px;
+}
+.divider {
+  border: none;
+  border-top: 1px solid var(--border-color);
+}
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #57606A;
+}
+.sectionTitle {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #8B949E;
+  margin-bottom: 5px;
+}
+.featureList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.featureList li {
+  font-size: 12px;
+  color: #57606A;
+}
+.featureList li::before {
+  content: '• ';
+  color: var(--color-accent);
+}
+
+/* ── Price history ── */
+.priceHistory {
+  grid-row: 2;
+  grid-column: 1;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-color);
+}
+.historyRow {
+  display: grid;
+  grid-template-columns: 110px 80px 1fr;
+  font-size: 12px;
+  color: #57606A;
+  padding: 5px 0;
+  border-bottom: 1px solid #F0F2F5;
+  gap: 8px;
+  align-items: center;
+}
+.historyRow:last-child {
+  border-bottom: none;
+}
+.event_listed {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.event_reduced {
+  color: var(--price-reduced);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.priceReduced {
+  color: var(--price-reduced);
+}
+
+/* ── Agent ── */
+.agentCard {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.agentPhoto {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.agentInitials {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #EBF5FF;
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.agentName {
+  font-size: 13px;
+  font-weight: 600;
+}
+.agentSub {
+  font-size: 11px;
+  color: #57606A;
+}
