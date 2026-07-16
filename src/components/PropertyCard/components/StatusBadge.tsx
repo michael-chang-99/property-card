@@ -1,9 +1,11 @@
-import type { Status } from '../PropertyCard.types';
-import { getStatusConfig } from '../utils/getStatusConfig';
 import styles from '../PropertyCard.module.css';
 
-export const StatusBadge = ({ status }: { status: Status }) => {
-  const { label, color } = getStatusConfig(status);
+interface StatusBadgeProps {
+  label: string;
+  color: string;
+}
+
+export const StatusBadge = ({ label, color }: StatusBadgeProps) => {
   return (
     <div className={styles.statusBadge}>
       <span className={styles.statusDot} style={{ background: color }} />

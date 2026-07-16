@@ -2,7 +2,11 @@ import type { PriceHistoryEntry } from '../PropertyCard.types';
 import { formatCurrency } from '../utils/formatCurrency';
 import styles from '../PropertyCard.module.css';
 
-export const PriceHistory = ({ entries }: { entries: PriceHistoryEntry[] }) => {
+interface PriceHistoryProps {
+  entries: PriceHistoryEntry[];
+}
+
+export const PriceHistory = ({ entries }: PriceHistoryProps) => {
   if (!entries.length) return null;
   return (
     <div className={styles.priceHistory}>

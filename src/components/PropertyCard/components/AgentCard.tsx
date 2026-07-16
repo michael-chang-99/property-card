@@ -1,24 +1,25 @@
-import type { Agent } from '../PropertyCard.types';
 import styles from '../PropertyCard.module.css';
 
-export const AgentCard = ({ agent }: { agent: Agent }) => {
-  const initials = agent.name
-    .split(' ')
-    .map(w => w[0])
-    .join('')
-    .toUpperCase();
+interface AgentCardProps {
+  agentName: string;
+  agentPhoto: string | null;
+  agentInitials: string;
+  agentPhone: string;
+  officeName: string;
+}
 
+export const AgentCard = ({ agentName, agentPhoto, agentInitials, agentPhone, officeName }: AgentCardProps) => {
   return (
     <div className={styles.agentCard}>
-      {agent.photo ? (
-        <img src={agent.photo} alt={agent.name} className={styles.agentPhoto} />
+      {agentPhoto ? (
+        <img src={agentPhoto} alt={agentName} className={styles.agentPhoto} />
       ) : (
-        <div className={styles.agentInitials}>{initials}</div>
+        <div className={styles.agentInitials}>{agentInitials}</div>
       )}
       <div>
-        <p className={styles.agentName}>{agent.name}</p>
-        <p className={styles.agentSub}>{agent.contact.phone}</p>
-        <p className={styles.agentSub}>{agent.contact.office.name}</p>
+        <p className={styles.agentName}>{agentName}</p>
+        <p className={styles.agentSub}>{agentPhone}</p>
+        <p className={styles.agentSub}>{officeName}</p>
       </div>
     </div>
   );

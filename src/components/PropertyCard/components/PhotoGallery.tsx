@@ -1,22 +1,20 @@
-import type { Photo } from '../PropertyCard.types';
 import styles from '../PropertyCard.module.css';
 
-export const PhotoGallery = ({ photos }: { photos: Photo[] }) => {
-  const primary = photos.find(p => p.isPrimary) ?? photos[0] ?? null;
+interface PhotoGalleryProps {
+  primaryPhoto: string | null;
+  photoCount: number;
+}
 
+export const PhotoGallery = ({ primaryPhoto, photoCount }: PhotoGalleryProps) => {
   return (
     <div className={styles.photoArea}>
-      {primary ? (
-        <img
-          src={primary.url}
-          alt={primary.caption ?? 'Property photo'}
-          className={styles.photo}
-        />
+      {primaryPhoto ? (
+        <img src={primaryPhoto} alt="Property photo" className={styles.photo} />
       ) : (
         <div className={styles.photoPlaceholder}>No photo available</div>
       )}
-      {photos.length > 0 && (
-        <span className={styles.photoCount}>📷 {photos.length}</span>
+      {photoCount > 0 && (
+        <span className={styles.photoCount}>📷 {photoCount}</span>
       )}
     </div>
   );
