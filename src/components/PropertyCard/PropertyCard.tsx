@@ -14,7 +14,10 @@ export const PropertyCard = ({ property }: { property: Property }) => {
 
   return (
     <div className={styles.card}>
-      <PhotoGallery photos={media.photos} />
+      <div className={styles.left}>
+        <PhotoGallery photos={media.photos} />
+        <PriceHistory entries={listing.priceHistory} />
+      </div>
 
       <div className={styles.info}>
         <div>
@@ -47,8 +50,6 @@ export const PropertyCard = ({ property }: { property: Property }) => {
 
         <AgentCard agent={agent} />
       </div>
-
-      <PriceHistory entries={listing.priceHistory} />
     </div>
   );
 };
